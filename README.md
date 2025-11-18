@@ -4,4 +4,4 @@
 INFOOOO
 Info by Jairo
 
-infor by Isa
+info by juanjose
