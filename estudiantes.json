@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": 1,
+        "nombre": "Carlos",
+        "edad": 25,
+        "curso": "\"Matem\u00e1ticas\""
+    },
+    {
+        "id": 2,
+        "nombre": "Miguel",
+        "edad": 56,
+        "curso": "\"Ingles\""
+    },
+    {
+        "id": 3,
+        "nombre": "Miguel",
+        "edad": 25,
+        "curso": "Religion"
+    }
+]

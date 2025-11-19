@@ -128,10 +128,15 @@ def main():
         opcion = input("Elige una opción: ")
 
         if opcion == "1":
-            nombre = input("Nombre: ")
-            edad = int(input("Edad: "))
-            curso = input("Curso: ")
-            crear_estudiante(nombre, edad, curso)
+            while True:
+                try:
+                    nombre = input("Nombre: ")
+                    edad = int(input("Edad: "))
+                    curso = input("Curso: ")
+                    crear_estudiante(nombre, edad, curso)
+                    break
+                except ValueError:
+                    print("Valide que edad sí sea un número entero")
 
         elif opcion == "2":
             mostrar_estudiantes()
