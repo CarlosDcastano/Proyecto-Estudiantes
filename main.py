@@ -19,3 +19,4 @@ def guardar_estudiantes(estudiantes):
     with open('estudiantes.json', 'w') as archivo:                      #Abre el archivo estudiantes.json en modo escritura ('w'). Si el archivo ya existe, se sobrescribe.
         json.dump(estudiantes, archivo, indent=4)                       #La función json.dump() convierte la lista estudiantes a formato JSON y la guarda en el archivo. El argumento indent=4 es para que aparezca un dato debajo de otro.
 
+#Correcciones hechas.
