@@ -1,5 +1,6 @@
 import json                  #importa la libreria json en python para exportar los archivos 
 import csv                   #importa la libreria csv para exportar los estudiantes 
+import os
 
 # --------------------------
 #  LECTURA Y ESCRITURA JSON
