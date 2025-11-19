@@ -36,7 +36,7 @@ def crear_estudiante(nombre, edad, curso):                                # Defi
 
     estudiantes.append(nuevo_estudiante)
     guardar_estudiantes(estudiantes)
-    print(f"✔ Estudiante '{nombre}' agregado con ID {nuevo_id}.")
+    print(f"Estudiante '{nombre}' agregado con ID {nuevo_id}.")
 
 
 def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
@@ -44,7 +44,7 @@ def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
     estudiante = next((e for e in estudiantes if e['id'] == id), None)
 
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
 
     if nombre:
@@ -55,7 +55,7 @@ def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
         estudiante["curso"] = curso
 
     guardar_estudiantes(estudiantes)
-    print(f"✔ Estudiante con ID {id} actualizado.")
+    print(f"Estudiante con ID {id} actualizado.")
 
 
 def eliminar_estudiante(id):
@@ -63,19 +63,19 @@ def eliminar_estudiante(id):
     estudiante = next((e for e in estudiantes if e['id'] == id), None)
 
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
 
     estudiantes.remove(estudiante)
     guardar_estudiantes(estudiantes)
-    print(f"✔ Estudiante con ID {id} fue eliminado.")
+    print(f"Estudiante con ID {id} fue eliminado.")
 
 
 def mostrar_estudiantes():
     estudiantes = leer_estudiantes()
 
     if not estudiantes:
-        print("⚠ No hay estudiantes registrados.")
+        print("No hay estudiantes registrados.")
         return
 
     print("\n--- LISTA DE ESTUDIANTES ---")
@@ -91,7 +91,7 @@ def exportar_csv():                                 # esta función exporta los 
     estudiantes = leer_estudiantes()
 
     if not estudiantes:
-        print("⚠ No hay estudiantes para exportar.")
+        print("No hay estudiantes para exportar.")
         return
 
     with open('estudiantes.csv', 'w', newline='') as archivo:      # abre el archivo estudiantes.csv en modo escritura
@@ -102,7 +102,7 @@ def exportar_csv():                                 # esta función exporta los 
         for est in estudiantes:                                     # recorre cada estudiante
             escritor.writerow([est["id"], est["nombre"], est["edad"], est["curso"]])  # escribe cada estudiante en el csv
 
-    print("✔ Archivo estudiantes.csv exportado correctamente.")     # mensaje al usuario
+    print("Archivo estudiantes.csv exportado correctamente.")     # mensaje al usuario
 
 
 # --------------------------
@@ -161,7 +161,7 @@ def main():
             break
 
         else:
-            print("❌ Opción no válida. Intenta otra vez.")
+            print("Opción no válida. Intenta otra vez.")
 
 
 if __name__ == "__main__":
