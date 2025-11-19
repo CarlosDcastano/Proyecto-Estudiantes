@@ -1,4 +1,72 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def mostrar_estudiantes():
     estudiantes = leer_estudiantes()
 
@@ -31,4 +99,3 @@ def exportar_csv():                                 # esta función exporta los 
             escritor.writerow([est["id"], est["nombre"], est["edad"], est["curso"]])  # escribe cada estudiante en el csv
 
     print("✔ Archivo estudiantes.csv exportado correctamente.")     # mensaje al usuario
-
