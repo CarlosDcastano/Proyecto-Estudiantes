@@ -1,5 +1,6 @@
-import json                  #importa la libreria json en python para exportar los archivos 
-import csv                   #importa la libreria csv para exportar los estudiantes 
+
+import json
+import csv
 
 # --------------------------
 #  LECTURA Y ESCRITURA JSON
@@ -19,10 +20,12 @@ def guardar_estudiantes(estudiantes):
     with open('estudiantes.json', 'w') as archivo:                      #Abre el archivo estudiantes.json en modo escritura ('w'). Si el archivo ya existe, se sobrescribe.
         json.dump(estudiantes, archivo, indent=4)                       #La función json.dump() convierte la lista estudiantes a formato JSON y la guarda en el archivo. El argumento indent=4 es para que aparezca un dato debajo de otro.
 
+#Correcciones hechas.
 
 # --------------------------
 #          CRUD
 # --------------------------
+
 def crear_estudiante(nombre, edad, curso):                                # Define la función crear_estudiante que toma tres parámetros: el nombre, edad y curso del estudiante que vamos a agregar
     estudiantes = leer_estudiantes()                                      # Llama a la función leer_estudiantes() para cargar la lista de estudiantes actuales desde el archivo.
     nuevo_id = max([e['id'] for e in estudiantes], default=0) + 1         # Genera un nuevo id único para el estudiante. Usa el valor más alto de los IDs existentes, le suma 1, y si la lista está vacía (no hay estudiantes), usa el valor 0 como base. Esto asegura que los IDs sean secuenciales.
@@ -40,13 +43,9 @@ def crear_estudiante(nombre, edad, curso):                                # Defi
 
 
 def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
-    estudiantes = leer_estudiantes()
-    estudiante = next((e for e in estudiantes if e['id'] == id), None)
-
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
-
     if nombre:
         estudiante["nombre"] = nombre
     if edad:
@@ -57,19 +56,17 @@ def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
     guardar_estudiantes(estudiantes)
     print(f"✔ Estudiante con ID {id} actualizado.")
 
-
 def eliminar_estudiante(id):
     estudiantes = leer_estudiantes()
     estudiante = next((e for e in estudiantes if e['id'] == id), None)
 
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
 
     estudiantes.remove(estudiante)
     guardar_estudiantes(estudiantes)
     print(f"✔ Estudiante con ID {id} fue eliminado.")
-
 
 def mostrar_estudiantes():
     estudiantes = leer_estudiantes()
@@ -103,6 +100,7 @@ def exportar_csv():                                 # esta función exporta los 
             escritor.writerow([est["id"], est["nombre"], est["edad"], est["curso"]])  # escribe cada estudiante en el csv
 
     print("✔ Archivo estudiantes.csv exportado correctamente.")     # mensaje al usuario
+
 
 
 # --------------------------
@@ -161,10 +159,11 @@ def main():
             break
 
         else:
-            print("❌ Opción no válida. Intenta otra vez.")
+            print("Opción no válida. Intenta otra vez.")
 
 
 if __name__ == "__main__":
     main()
 
 #Cambios by Isa Palacios
+
