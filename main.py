@@ -44,7 +44,7 @@ def crear_estudiante(nombre, edad, curso):                                # Defi
 
 def actualizar_estudiante(id, nombre=None, edad=None, curso=None):
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
     if nombre:
         estudiante["nombre"] = nombre
@@ -61,7 +61,7 @@ def eliminar_estudiante(id):
     estudiante = next((e for e in estudiantes if e['id'] == id), None)
 
     if not estudiante:
-        print("❌ No existe un estudiante con ese ID.")
+        print("No existe un estudiante con ese ID.")
         return
 
     estudiantes.remove(estudiante)
@@ -100,3 +100,70 @@ def exportar_csv():                                 # esta función exporta los 
             escritor.writerow([est["id"], est["nombre"], est["edad"], est["curso"]])  # escribe cada estudiante en el csv
 
     print("✔ Archivo estudiantes.csv exportado correctamente.")     # mensaje al usuario
+
+
+
+# --------------------------
+#          MENÚ
+# --------------------------
+def mostrar_menu():
+    print("""
+=============================
+   SISTEMA CRUD ESTUDIANTES  
+=============================
+1. Crear estudiante
+2. Mostrar estudiantes
+3. Actualizar estudiante
+4. Eliminar estudiante
+5. Exportar a CSV
+6. Salir
+""")
+
+
+def main():
+    while True:
+        mostrar_menu()
+        opcion = input("Elige una opción: ")
+
+        if opcion == "1":
+            nombre = input("Nombre: ")
+            edad = int(input("Edad: "))
+            curso = input("Curso: ")
+            crear_estudiante(nombre, edad, curso)
+
+        elif opcion == "2":
+            mostrar_estudiantes()
+
+        elif opcion == "3":
+            id = int(input("ID del estudiante a actualizar: "))
+            nombre = input("Nuevo nombre (enter para no cambiar): ")
+            edad = input("Nueva edad (enter para no cambiar): ")
+            curso = input("Nuevo curso (enter para no cambiar): ")
+
+            actualizar_estudiante(
+                id,
+                nombre if nombre else None,
+                int(edad) if edad else None,
+                curso if curso else None
+            )
+
+        elif opcion == "4":
+            id = int(input("ID a eliminar: "))
+            eliminar_estudiante(id)
+
+        elif opcion == "5":
+            exportar_csv()
+
+        elif opcion == "6":
+            print("¡Hasta luego!")
+            break
+
+        else:
+            print("Opción no válida. Intenta otra vez.")
+
+
+if __name__ == "__main__":
+    main()
+
+#Cambios by Isa Palacios
+
