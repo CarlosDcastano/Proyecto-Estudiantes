@@ -1,5 +1,3 @@
-import json                  #importa la libreria json en python para exportar los archivos 
-import csv                   #importa la libreria csv para exportar los estudiantes 
 
 # --------------------------
 #  LECTURA Y ESCRITURA JSON
